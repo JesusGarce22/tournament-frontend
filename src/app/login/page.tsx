@@ -6,6 +6,8 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import styles from "./loginPage.module.css";
 import { useCreateUser } from "@/hooks/auth/users/useCreateUser";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function LoginPage() {
     const [login, setLogin] = useState("");
@@ -15,7 +17,7 @@ export default function LoginPage() {
     const [isRegister, setIsRegister] = useState(false);
     const router = useRouter();
     const { login: loginFunction } = useLogin();
-    const { singup: registerFunction } = useCreateUser(); // Corregido a "signup"
+    const { singup: registerFunction } = useCreateUser();
 
     const toggleForm = () => {
         setIsRegister(!isRegister);
@@ -25,16 +27,17 @@ export default function LoginPage() {
         if (login && password) {
             try {
                 const res = await loginFunction(login, password);
+                toast.success("login succesfull");
                 Cookies.set("currentUser", JSON.stringify({ name: login }));
-                router.push("/home");
+                router.push("/");
             } catch (err) {
-                alert("Invalid login or password");
+                toast.error("Invalid login or password");
                 setLogin("");
                 setPassword("");
                 console.log(err);
             }
         } else {
-            alert("Please fill all fields");
+            toast.warn("Please fill all fields");
         }
     };
 
@@ -42,16 +45,16 @@ export default function LoginPage() {
         if (name && registerPassword) {
             try {
                 const res = await registerFunction(name, registerPassword);
-                console.log(res);
+                toast.success("Register succesfull");
                 router.push("/");
             } catch (err) {
-                alert("Invalid data");
-                setName(""); // Asegúrate de limpiar el campo de nombre también
+                toast.error("Invalid data");
+                setName("");
                 setRegisterPassword("");
                 console.log(err);
             }
         } else {
-            alert("Please fill all fields");
+            toast.error("Please fill all fields");
         }
     };
 
@@ -127,6 +130,7 @@ export default function LoginPage() {
                     </>
                 )}
             </div>
+            <ToastContainer />
         </div>
     );
 }

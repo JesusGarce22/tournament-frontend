@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axiosInstance from "../../config/axios";
 import styles from "./createTournament.module.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CreateTournament() {
   const [name, setName] = useState("");
@@ -17,17 +19,21 @@ export default function CreateTournament() {
 
     try {
       const token = localStorage.getItem('token');
+      if (!token) {
+        toast.error("You must be logged in to create a tournament.");
+        return;
+      }
       axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       const response = await axiosInstance.post("/tournament/create", tournamentData);
 
       if (response.status === 201) {
-        console.log("Tournament created successfully:", response.data);
+        toast.success("Tournament created successfully");
         router.push("/");
       } else {
-        console.error("Failed to create tournament:", response.statusText);
+        toast.error("Failed to create tournament:");
       }
     } catch (error) {
-      console.error("Error creating tournament:", error);
+      toast.error("Error creating tournament:");
     }
   };
 
@@ -58,6 +64,7 @@ export default function CreateTournament() {
           Create Tournament
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 }

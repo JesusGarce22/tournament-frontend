@@ -5,7 +5,8 @@ import axiosInstance from "../config/axios";
 import styles from "./home.module.css";
 import { useCurrentUser } from "../hooks/auth/useCurrentUser";
 import Cookies from "js-cookie";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface Tournament {
   id: number;
@@ -28,7 +29,7 @@ export default function Home() {
         const response = await axiosInstance.get("/tournament");
         setTournaments(response.data);
       } catch (error) {
-        console.error("Error fetching tournaments:", error);
+        toast.error("Error fetching tournaments:"+ error);
       }
     };
 
@@ -42,14 +43,16 @@ export default function Home() {
         <nav className={styles.nav}>
           <a href="#about">About</a>
           <a href="/tournaments">Create Tournament</a>
-          <a>{user ? (
+          <a href="/editUser">{user ? (
             <>
               <span className={styles.userGreeting}>{user.name}</span>
             </>
           ) : (
             <a href="/login" className={styles.btnLogin}>Login</a>
           )}</a>
-          <a href="/" onClick={ (e) => {Cookies.remove("currentUser");}}>Loguot</a>
+          <a href="/" onClick={ (e) => {Cookies.remove("currentUser"); 
+            localStorage.setItem('token',"")
+          }}>Loguot</a>
         </nav>
       </header>
 
