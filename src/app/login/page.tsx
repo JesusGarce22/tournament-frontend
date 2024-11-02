@@ -3,6 +3,7 @@
 import { useLogin } from "@/hooks/auth/useLogin";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Cookies from "js-cookie";
 import styles from "./loginPage.module.css";
 import { useCreateUser } from "@/hooks/auth/users/useCreateUser";
 
@@ -24,7 +25,7 @@ export default function LoginPage() {
         if (login && password) {
             try {
                 const res = await loginFunction(login, password);
-                console.log(res);
+                Cookies.set("currentUser", JSON.stringify({ name: login }));
                 router.push("/home");
             } catch (err) {
                 alert("Invalid login or password");
@@ -42,7 +43,7 @@ export default function LoginPage() {
             try {
                 const res = await registerFunction(name, registerPassword);
                 console.log(res);
-                router.push("/login");
+                router.push("/");
             } catch (err) {
                 alert("Invalid data");
                 setName(""); // Asegúrate de limpiar el campo de nombre también

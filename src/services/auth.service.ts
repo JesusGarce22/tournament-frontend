@@ -38,7 +38,8 @@ export class AuthService {
     public async login(username: string, password: string) {
         try {
             const response = await this.axios.post('/user/signin', { username, password });
-            const token = response.data.token; // Asumiendo que el token viene en response.data.token
+            const token = response.data.token;
+            localStorage.setItem('token', token);
             this.setToken(token);
             this.setAuthHeader(token);
             return response.data;

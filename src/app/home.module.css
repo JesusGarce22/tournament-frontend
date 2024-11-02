@@ -1,0 +1,99 @@
+.header {
+    background-color: #006400; /* Verde oscuro */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .tournaments {
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .tournamentList {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .tournamentCard {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  .tournamentCard:hover {
+    transform: scale(1.05);
+  }
+  
+  .tournamentTitle {
+    font-size: 1.5em;
+    color: #006400; /* Verde oscuro */
+    margin-bottom: 10px;
+  }
+  
+  .tournamentDescription {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .btnDetails {
+    display: inline-block;
+    padding: 10px 15px;
+    color: white;
+    background-color: #006400;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .btnDetails:hover {
+    background-color: #004d00; /* Verde más oscuro */
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #006400;
+    color: white;
+  }
+  
+  .about {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  .aboutImage {
+    width: 80%;
+    max-width: 300px;
+    margin: 20px 0;
+    container-type: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .btnDetailsDisabled {
+    color: gray; /* O el color que desees */
+    cursor: not-allowed; /* Cambia el cursor para mostrar que no es clickeable */
+  }
+  
+  

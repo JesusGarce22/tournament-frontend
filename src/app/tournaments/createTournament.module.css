@@ -1,0 +1,62 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('/path/to/your-background-image.jpg'); /* Agrega aquí el path de tu imagen */
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .h2 {
+    font-size: 2.5rem;
+    color: #00a86b; /* Verde principal */
+    margin-bottom: 20px;
+  }
+  
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro traslúcido */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .label {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #a0ffc0; /* Verde claro */
+  }
+  
+  .inputField {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border: 2px solid #00a86b; /* Borde verde */
+    border-radius: 4px;
+    background-color: #353131;
+  }
+  
+  .button {
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #00a86b; /* Verde principal */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #007f5f; /* Verde más oscuro */
+  }
+  
