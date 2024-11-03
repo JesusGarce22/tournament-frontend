@@ -46,7 +46,7 @@ export default function LoginPage() {
             try {
                 const res = await registerFunction(name, registerPassword);
                 toast.success("Register succesfull");
-                router.push("/");
+                router.push("/login");
             } catch (err) {
                 toast.error("Invalid data");
                 setName("");

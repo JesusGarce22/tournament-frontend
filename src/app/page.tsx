@@ -38,10 +38,12 @@ export default function Home() {
 
   return (
     <div>
+      <title>Home</title>
       <header className={styles.header}>
         <div className={styles.logo}>Tournament Management</div>
         <nav className={styles.nav}>
           <a href="#about">About</a>
+          <a href="/groups">Groups</a>
           <a href="/tournaments">Create Tournament</a>
           <a href="/editUser">{user ? (
             <>
@@ -80,7 +82,7 @@ export default function Home() {
                 </div>
               ))
             ) : (
-              <p>No tournaments available at the moment.</p>
+              <p>No tournaments available at the moment. please singin if you dont do it</p>
             )}
           </div>
         </section>

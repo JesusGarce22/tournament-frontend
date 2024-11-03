@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 
 export const useLogin = () => {
     const login = async (username: string, password: string) => {
-        const authService = new AuthService("http://localhost:3001");
+        const authService = new AuthService();
         const user = await authService.login(username, password);
         if (user)
             Cookies.set("currentUser", JSON.stringify(user));
