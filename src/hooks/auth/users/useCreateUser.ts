@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 
 export const useCreateUser = () => {
     const singup = async (username: string, password: string) => {
-        const authService = new AuthService("http://localhost:3001");
+        const authService = new AuthService();
         
         const user = await authService.singup(username, password);
         if (user)
