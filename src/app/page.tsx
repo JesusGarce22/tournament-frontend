@@ -5,8 +5,9 @@ import axiosInstance from "../config/axios";
 import styles from "./home.module.css";
 import { useCurrentUser } from "../hooks/auth/useCurrentUser";
 import Cookies from "js-cookie";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Image from 'next/image';
 
 interface Tournament {
   id: number;
@@ -52,7 +53,7 @@ export default function Home() {
           ) : (
             <a href="/login" className={styles.btnLogin}>Login</a>
           )}</a>
-          <a href="/" onClick={ (e) => {Cookies.remove("currentUser"); 
+          <a href="/" onClick={ () => {Cookies.remove("currentUser"); 
             localStorage.setItem('token',"")
           }}>Loguot</a>
         </nav>
@@ -60,7 +61,13 @@ export default function Home() {
 
       <main>
         <section id="about" className={styles.about}>
-          <img src="https://play-lh.googleusercontent.com/rdBroXcP_IpVpIF-xQQB16d21CBFDlpRC3hAgCpwQA1N0dHVH4Yf5EPp-B7QVZ8zJZQ" alt="App overview" className={styles.aboutImage} />
+        <Image
+            src="https://play-lh.googleusercontent.com/rdBroXcP_IpVpIF-xQQB16d21CBFDlpRC3hAgCpwQA1N0dHVH4Yf5EPp-B7QVZ8zJZQ"
+            alt="App overview"
+            className={styles.aboutImage}
+            width={500}
+            height={300}
+          />
           <p>
             Our platform is designed to simplify tournament management, whether for sports or online games. With customizable tournament formats, real-time tracking, and an intuitive user interface, organizing competitions has never been easier. Join us to create, manage, and participate in tournaments effortlessly.
           </p>

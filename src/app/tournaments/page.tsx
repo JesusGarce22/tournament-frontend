@@ -33,7 +33,7 @@ export default function CreateTournament() {
         toast.error("Failed to create tournament:");
       }
     } catch (error) {
-      toast.error("Error creating tournament:");
+      toast.error("Error creating tournament:"+ error);
     }
   };
 

@@ -27,7 +27,7 @@ export default function LoginPage() {
         if (login && password) {
             try {
                 const res = await loginFunction(login, password);
-                toast.success("login succesfull");
+                toast.success("login succesfull" + res);
                 Cookies.set("currentUser", JSON.stringify({ name: login }));
                 router.push("/");
             } catch (err) {
@@ -45,7 +45,7 @@ export default function LoginPage() {
         if (name && registerPassword) {
             try {
                 const res = await registerFunction(name, registerPassword);
-                toast.success("Register succesfull");
+                toast.success("Register succesfull" + res);
                 router.push("/login");
             } catch (err) {
                 toast.error("Invalid data");

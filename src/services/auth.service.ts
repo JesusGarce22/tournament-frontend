@@ -7,7 +7,7 @@ export class AuthService {
             localStorage.setItem('token', token);
             return response.data;
         } catch (error) {
-            throw new Error('Login failed. Please check your credentials.');
+            throw new Error('Login failed. Please check your credentials.'+ error);
         }
     }
 
@@ -17,7 +17,7 @@ export class AuthService {
             
             return response.data;
         } catch (error) {
-            throw new Error('signup failed. Please check your credentials.');
+            throw new Error('signup failed. Please check your credentials.'+ error);
         }
     }
 }

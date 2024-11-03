@@ -37,7 +37,7 @@ export default function GroupManagement() {
             }
         })
         .then(response => setTournaments(response.data))
-        .catch(error => toast.error("Error fetching tournaments: please singin before"));
+        .catch(()=>toast.error("Error fetching tournaments: please singin before"));
     }, []);
 
     useEffect(() => {
@@ -47,7 +47,7 @@ export default function GroupManagement() {
             }
         })
         .then(response => setGroups(response.data))
-        .catch(error => toast.error("Error fetching groups: please singin before"));
+        .catch(() => toast.error("Error fetching groups: please singin before"));
     }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -65,7 +65,7 @@ export default function GroupManagement() {
             if (groupName.length < 5){
                 toast.warn("The group name must be more than 5 characters")
             }else{
-                toast.error("Error creating group: ");
+                toast.error("Error creating group: "+error);
             }
         }
     };
@@ -84,7 +84,7 @@ export default function GroupManagement() {
             if (groupName.length < 5){
                 toast.warn("The group name must be more than 5 characters")
             }else{
-                toast.error("Error updating group");
+                toast.error("Error updating group"+ error);
             }
         }
     };    
@@ -98,7 +98,7 @@ export default function GroupManagement() {
             });
             setGroup(response.data);
         } catch (error) {
-            toast.error("Error fetching group by ID: ");
+            toast.error("Error fetching group by ID: "+error);
         }
     };
 
