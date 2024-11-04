@@ -1,5 +1,4 @@
 import axiosInstance, { setAuthToken } from "../config/axios";
-
 export class AuthService {
     public async login(username: string, password: string) {
         try {
@@ -14,16 +13,17 @@ export class AuthService {
 
             return response.data;
         } catch (error) {
-            throw new Error('Login failed. Please check your credentials. ' + error);
+            throw new Error('Login failed. Please check your credentials.'+ error);
         }
     }
 
-    public async signup(username: string, password: string) {
+    public async singup(username: string, password: string) {
         try {
             const response = await axiosInstance.post('/user/signup', { username, password });
+            
             return response.data;
         } catch (error) {
-            throw new Error('Signup failed. Please check your credentials. ' + error);
+            throw new Error('signup failed. Please check your credentials.'+ error);
         }
     }
 }
