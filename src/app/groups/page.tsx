@@ -117,6 +117,7 @@ export default function GroupManagement() {
 
     return (
         <div className={styles.page}>
+            <title>Groups</title>
             <header className={styles.header}>
                 <h1>Group Management</h1>
                 <nav className={styles.navbar}>

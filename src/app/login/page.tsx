@@ -60,6 +60,7 @@ export default function LoginPage() {
 
     return (
         <div className={styles.page}>
+            <title>Login</title>
             <div className={styles.formContainer}>
                 
                 {isRegister ? (

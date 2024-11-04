@@ -39,6 +39,7 @@ export default function CreateTournament() {
 
   return (
     <div className={styles.page}>
+      <title>Tournament</title>
       <h2>Create a New Tournament</h2>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
         <label className={styles.label}>Name</label>

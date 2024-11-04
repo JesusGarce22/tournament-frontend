@@ -72,6 +72,7 @@ export default function EditUser() {
 
     return (
         <div className={styles.page}>
+            <title>Edit user</title>
             <form onSubmit={handleSubmit} className={styles.formContainer}>
                 <label className={styles.label}>Username</label>
                 <input
